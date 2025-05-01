@@ -889,7 +889,7 @@ require('lazy').setup({
       ---@diagnostic disable-next-line: missing-fields
       require('catppuccin').setup {
         no_italic = true,
-        transparent_background = true,
+        transparent_background = false,
       }
 
       -- Load the colorscheme here.
