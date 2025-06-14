@@ -676,7 +676,7 @@ require('lazy').setup({
         -- gopls = {},
         pyright = {},
         matlab_ls = {},
-        julia_ls = {},
+        julials = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
