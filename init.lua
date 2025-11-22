@@ -98,6 +98,12 @@ vim.g.have_nerd_font = true
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
+-- Add near the top in the "Setting options" section (after the other vim.o / vim.opt lines)
+vim.opt.expandtab = true -- use spaces instead of real tabs
+vim.opt.shiftwidth = 2 -- number of spaces to use for each step of (auto)indent
+vim.opt.tabstop = 2 -- number of spaces that a <Tab> in the file counts for
+vim.opt.softtabstop = 2 -- number of spaces inserted when pressing <Tab>
+
 -- Make line numbers default
 vim.o.number = true
 -- You can also add relative line numbers, to help with jumping.
@@ -677,6 +683,7 @@ require('lazy').setup({
         pyright = {},
         matlab_ls = {},
         julials = {},
+        lemminx = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -947,7 +954,7 @@ require('lazy').setup({
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
+      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'xml' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
