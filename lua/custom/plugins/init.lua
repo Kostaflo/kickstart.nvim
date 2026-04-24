@@ -27,4 +27,8 @@ return {
     vim.keymap.set('n', '<leader>g', ':TestVisit<CR>', {}),
     vim.cmd "let test#strategy = 'vimux'",
   },
+  {
+    'windwp/nvim-ts-autotag',
+    opts = {},
+  },
 }
