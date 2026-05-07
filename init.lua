@@ -613,6 +613,12 @@ require('lazy').setup({
         -- gopls = {},
         pyright = {},
         lemminx = {},
+        tinymist = {
+          settings = {
+            exportPdf = 'onSave',
+            outputPath = '$dir/$name',
+          },
+        },
         -- rust_analyzer = {},
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -717,8 +723,8 @@ require('lazy').setup({
         python = { 'isort', 'black' },
         java = { 'google-java-format' },
         julia = { 'jupytext' },
-        html = {'prettier'},
-        css = {'prettier'},
+        html = { 'prettier' },
+        css = { 'prettier' },
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
       },

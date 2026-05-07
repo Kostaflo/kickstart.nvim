@@ -42,4 +42,13 @@ return {
     'windwp/nvim-ts-autotag',
     opts = {},
   },
+  {
+    'chomosuke/typst-preview.nvim',
+    ft = 'typst',
+    version = '1.*',
+    build = function() require('typst-preview').update() end,
+    opts = {
+      open_cmd = 'firefox %s',
+    },
+  },
 }
