@@ -432,6 +432,8 @@ do
 
   require('catppuccin').setup {
     flavour = 'mocha',
+    no_italic = true,
+    no_bold = true,
   }
 
   -- Load the colorscheme here.
@@ -738,7 +740,11 @@ do
   local servers = {
     -- clangd = {},
     -- gopls = {},
-    -- pyright = {},
+    jdtls = {},
+    cssls = {},
+    html = {},
+    pyright = {},
+    tinymist = {},
     -- tsc = {},
     --
     -- Some languages (like rust) have entire language plugins that can be useful:
@@ -829,8 +835,11 @@ do
     format_on_save = function(bufnr)
       -- You can specify filetypes to autoformat on save here:
       local enabled_filetypes = {
-        -- lua = true,
-        -- python = true,
+        lua = true,
+        python = true,
+        java = true,
+        html = true,
+        css = true,
       }
       if enabled_filetypes[vim.bo[bufnr].filetype] then
         return { timeout_ms = 500 }
@@ -845,7 +854,10 @@ do
     formatters_by_ft = {
       -- rust = { 'rustfmt' },
       -- Conform can also run multiple formatters sequentially
-      -- python = { "isort", "black" },
+      python = { 'isort' },
+      java = { 'google_java_format' },
+      css = { 'prettierd', 'prettier' },
+      html = { 'prettierd', 'prettier' },
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
       -- javascript = { "prettierd", "prettier", stop_after_first = true },
@@ -1037,4 +1049,3 @@ end
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
-
