@@ -3,52 +3,13 @@
 --
 -- See the kickstart.nvim README for more information
 
----@module 'lazy'
----@type LazySpec
-return {
 
-  {
-    'github/copilot.vim',
-    config = function()
-      vim.g.copilot_no_tab_map = true
-      vim.keymap.set('i', '<C-y>', 'copilot#Accept("\\<CR>")', {
-        expr = true,
-        replace_keycodes = false,
-      })
-      vim.keymap.set('i', '<C-]>', '<Plug>(copilot-next)')
-      vim.keymap.set('i', '<C-x>', '<Plug>(copilot-dismiss)')
-    end,
-  },
-  {
-    'christoomey/vim-tmux-navigator',
-    vim.keymap.set('n', '<C-h>', '<cmd>TmuxNavigateLeft<cr>'),
-    vim.keymap.set('n', '<C-j>', '<cmd>TmuxNavigateDown<cr>'),
-    vim.keymap.set('n', '<C-k>', '<cmd>TmuxNavigateUp<cr>'),
-    vim.keymap.set('n', '<C-l>', '<cmd>TmuxNavigateRight<cr>'),
-  },
-  {
-    'vim-test/vim-test',
-    dependencies = {
-      'preservim/vimux',
-    },
-    vim.keymap.set('n', '<leader>t', ':TestNearest<CR>', {}),
-    vim.keymap.set('n', '<leader>T', ':TestFile<CR>', {}),
-    vim.keymap.set('n', '<leader>a', ':TestSuite<CR>', {}),
-    vim.keymap.set('n', '<leader>l', ':TestLast<CR>', {}),
-    vim.keymap.set('n', '<leader>g', ':TestVisit<CR>', {}),
-    vim.cmd "let test#strategy = 'vimux'",
-  },
-  {
-    'windwp/nvim-ts-autotag',
-    opts = {},
-  },
-  {
-    'chomosuke/typst-preview.nvim',
-    ft = 'typst',
-    version = '1.*',
-    build = function() require('typst-preview').update() end,
-    opts = {
-      open_cmd = 'firefox %s',
-    },
-  },
-}
+-- Iterate over all Lua files in the plugins directory and load them.
+-- `vim.fs.dir()` iteration order is unspecified and must not be relied upon.
+local plugins_dir = vim.fs.joinpath(vim.fn.stdpath 'config', 'lua', 'custom', 'plugins')
+for file_name, type in vim.fs.dir(plugins_dir, { follow = true }) do
+  if (type == 'file' or type == 'link') and file_name:match '%.lua$' and file_name ~= 'init.lua' then
+    local module = file_name:gsub('%.lua$', '')
+    require('custom.plugins.' .. module)
+  end
+end
