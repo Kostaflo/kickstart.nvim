@@ -740,7 +740,13 @@ do
   local servers = {
     -- clangd = {},
     -- gopls = {},
-    jdtls = {},
+    jdtls = {
+      cmd = {
+        'jdtls',
+        '--java-executable',
+        '/usr/lib/jvm/java-25-openjdk/bin/java',
+      },
+    },
     cssls = {},
     html = {},
     pyright = {},
