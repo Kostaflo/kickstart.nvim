@@ -171,6 +171,9 @@ do
   -- instead raise a dialog asking if you wish to save the current file(s)
   -- See `:help 'confirm'`
   vim.o.confirm = true
+
+  -- Set the number of spaces that a <Tab> in the file counts for.
+  vim.o.tabstop = 2
 end
 
 -- ============================================================
