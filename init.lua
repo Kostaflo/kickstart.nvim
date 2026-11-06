@@ -754,6 +754,7 @@ do
     html = {},
     pyright = {},
     tinymist = {},
+    ts_ls = {},
     -- tsc = {},
     --
     -- Some languages (like rust) have entire language plugins that can be useful:
@@ -867,6 +868,7 @@ do
       java = { 'google_java_format' },
       css = { 'prettierd', 'prettier' },
       html = { 'prettierd', 'prettier' },
+      javascript = { 'prettierd', 'prettier' },
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
       -- javascript = { "prettierd", "prettier", stop_after_first = true },
