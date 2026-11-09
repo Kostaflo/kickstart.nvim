@@ -174,6 +174,8 @@ do
 
   -- Set the number of spaces that a <Tab> in the file counts for.
   vim.o.tabstop = 2
+  vim.o.shiftwidth = 2
+  vim.o.expandtab = true
 end
 
 -- ============================================================
