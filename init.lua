@@ -852,6 +852,7 @@ do
         java = true,
         html = true,
         css = true,
+        xml = true,
       }
       if enabled_filetypes[vim.bo[bufnr].filetype] then
         return { timeout_ms = 500 }
@@ -871,6 +872,7 @@ do
       css = { 'prettierd', 'prettier' },
       html = { 'prettierd', 'prettier' },
       javascript = { 'prettierd', 'prettier' },
+      xml = { 'xmlformat' },
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
       -- javascript = { "prettierd", "prettier", stop_after_first = true },
